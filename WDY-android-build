@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ -z {WDY_XBUILD_ROOT} ]; then
+	echo "WDY_XBUILD_ROOT not set!"
+	exit 1
+fi
+
+DIR=$(readlink -f $(dirname $0))
+
+${WDY_XBUILD_ROOT}/bin/cmake-android-build ${DIR} \
+	-DRAPIDJSON_BUILD_DOC=OFF \
+	-DRAPIDJSON_BUILD_EXAMPLES=OFF \
+	-DRAPIDJSON_BUILD_TESTS=OFF \
+	-DRAPIDJSON_BUILD_CXX17=ON
+	
+
